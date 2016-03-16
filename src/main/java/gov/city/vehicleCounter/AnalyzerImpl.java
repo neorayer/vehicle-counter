@@ -1,40 +1,60 @@
 package gov.city.vehicleCounter;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import gov.city.vehicleCounter.data.AxleItem;
+import gov.city.vehicleCounter.data.CarItem;
+
 public class AnalyzerImpl implements Analyzer {
-	private List<DataItem> items = new LinkedList<DataItem>();
-	private List<DataPair> pairs = new LinkedList<DataPair>();
+	private List<AxleItem> axleItems = new LinkedList<AxleItem>();
+	private List<CarItem> carItems = new LinkedList<CarItem>();
+	private List<List<CarItem>> carItemsOfDays = new ArrayList<List<CarItem>>();
+	private String[] arr = new String[5];
 
 	public void setDataReader(DataReader dReader) {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException();
 	}
 
-	public void analyze() {
-		DataPair pair = new DataPair();
-		for (DataItem item: this.items) {
-			if (pair.getFrontAxleItem() == null) {
-				pair.setFrontAxleItem(item);
+	public void setAxleItems(List<AxleItem> items) {
+		this.axleItems.clear();
+		this.axleItems.addAll(items);
+	}
+
+	public List<CarItem> getCarItems() {
+		return this.carItems;
+	}
+
+	public List<List<CarItem>> getCarItemsOfDays() {
+		return this.carItemsOfDays;
+	}
+
+	void fromAxleItemsToCarItems() {
+		carItems.clear();
+
+		CarItem carItem = new CarItem();
+		for (AxleItem axleItem : this.axleItems) {
+			carItem.addAxleItem(axleItem);
+			if (carItem.isIntegrated()) {
+				this.carItems.add(carItem);
+				carItem = new CarItem();
 			}
-			
-			
 		}
-		this.items.stream().forEach((item) -> System.out.println(item));
-		
-		// TODO Auto-generated method stub
-		//throw new UnsupportedOperationException();
-
 	}
 
-	public void setDataItems(List<DataItem> items) {
-		this.items.clear();
-		this.items.addAll(items);
+	private void separateCarItemsByDay() {
+		carItemsOfDays.clear();
+
+		carItems.forEach((item) -> {
+
+		});
 	}
 
-	public List<DataPair> getPairs() {
-		return this.pairs;
+	public void analyze() {
+		fromAxleItemsToCarItems();
+		separateCarItemsByDay();
 	}
 
 }

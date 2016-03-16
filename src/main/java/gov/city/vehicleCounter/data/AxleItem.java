@@ -1,6 +1,6 @@
-package gov.city.vehicleCounter;
+package gov.city.vehicleCounter.data;
 
-public class DataItem {
+public class AxleItem {
 
 	public enum Sensor {
 		A, B
@@ -10,13 +10,13 @@ public class DataItem {
 
 	private long millSeconds;
 
-	public DataItem(Sensor axle, long millSeconds) {
+	public AxleItem(Sensor axle, long millSeconds) {
 		super();
 		this.axle = axle;
 		this.millSeconds = millSeconds;
 	}
 
-	public Sensor getAxle() {
+	public Sensor getSensor() {
 		return axle;
 	}
 

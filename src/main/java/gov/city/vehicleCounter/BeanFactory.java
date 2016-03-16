@@ -1,16 +1,10 @@
 package gov.city.vehicleCounter;
 
-public class BeanFactory {
+public interface BeanFactory {
 
-	public static DataReader getDataReader() {
-		throw new UnsupportedOperationException();
-	}
+	DataReader getDataReader();
 
-	public static Analyzer getAnalyzer() {
-		return new AnalyzerImpl();
-	}
+	Analyzer getAnalyzer();
 
-	public static ReportBuilder getReportBuilder() {
-		throw new UnsupportedOperationException();
-	}
+	ReportBuilder getReportBuilder();
 }

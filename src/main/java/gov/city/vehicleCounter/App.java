@@ -5,7 +5,8 @@ import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
 
-import gov.city.vehicleCounter.DataItem.Sensor;
+import gov.city.vehicleCounter.data.AxleItem;
+import gov.city.vehicleCounter.data.AxleItem.Sensor;
 
 /**
  * Hello world!
@@ -16,11 +17,11 @@ public class App {
 	
 	
 	public static void main(String[] args) {
-		List<DataItem> items = new LinkedList<DataItem>();
-		items.add(new DataItem(Sensor.A, 268981));
-		items.add(new DataItem(Sensor.A, 269123));
-		items.add(new DataItem(Sensor.A, 604957));
-		items.add(new DataItem(Sensor.B, 604960));
+		List<AxleItem> items = new LinkedList<AxleItem>();
+		items.add(new AxleItem(Sensor.A, 268981));
+		items.add(new AxleItem(Sensor.A, 269123));
+		items.add(new AxleItem(Sensor.A, 604957));
+		items.add(new AxleItem(Sensor.B, 604960));
 		
 	
 		
