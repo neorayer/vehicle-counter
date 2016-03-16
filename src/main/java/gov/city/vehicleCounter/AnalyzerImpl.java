@@ -45,11 +45,21 @@ public class AnalyzerImpl implements Analyzer {
 	}
 
 	private void separateCarItemsByDay() {
-		carItemsOfDays.clear();
+		this.carItemsOfDays.clear();
 
-		carItems.forEach((item) -> {
-
-		});
+		List<CarItem> curDayCarItems = null;
+		CarItem lastItem = null;
+		int day = -1;
+		for (CarItem item : this.carItems) {
+			if (item.isEarlierThan(lastItem)) {
+				day++;
+				curDayCarItems = new LinkedList<CarItem>();
+				this.carItemsOfDays.add(curDayCarItems);
+			}
+			item.setDay(day);
+			curDayCarItems.add(item);
+			lastItem = item;
+		}
 	}
 
 	public void analyze() {

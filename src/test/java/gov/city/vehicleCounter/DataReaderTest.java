@@ -24,36 +24,36 @@ public class DataReaderTest extends TestCase {
 	public void testReadLines() throws IOException {
 		List<String> lines = dataReader.readLinesFromResource(sampleName);
 		// test the size
-		assertEquals(lines.size(), 18);
+		assertEquals(18, lines.size());
 		// test the first line
-		assertEquals(lines.get(0), "A268981");
+		assertEquals("A268981", lines.get(0));
 		// test the last line
-		assertEquals(lines.get(17), "B582789");
+		assertEquals("B582789", lines.get(17));
 	}
 
-	public void testParseLine()  {
+	public void testParseLine() {
 		AxleItem item = dataReader.parseLine("A268981");
-		assertEquals(item.getSensor(), Sensor.A);
-		assertEquals(item.getMillSeconds(), 268981);
+		assertEquals(Sensor.A, item.getSensor());
+		assertEquals(268981, item.getMillSeconds());
 	}
-	
+
 	public void testReadData() throws IOException {
 		List<AxleItem> items = dataReader.readDataFromResource(sampleName);
-		
+
 		// test size
-		assertEquals(items.size(), 18);
-		
+		assertEquals(18, items.size());
+
 		// test first data
 		{
 			AxleItem item = items.get(0);
-			assertEquals(item.getSensor(), Sensor.A);
-			assertEquals(item.getMillSeconds(), 268981);
+			assertEquals(Sensor.A, item.getSensor());
+			assertEquals(268981, item.getMillSeconds());
 		}
 		// test last data
 		{
 			AxleItem item = items.get(items.size() - 1);
-			assertEquals(item.getSensor(), Sensor.B);
-			assertEquals(item.getMillSeconds(), 582789);
+			assertEquals(Sensor.B, item.getSensor());
+			assertEquals(582789, item.getMillSeconds());
 		}
 	}
 }

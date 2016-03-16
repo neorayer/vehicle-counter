@@ -17,6 +17,6 @@ public class SimpleBeanFactory implements BeanFactory{
 	}
 
 	public ReportBuilder getReportBuilder() {
-		throw new UnsupportedOperationException();
+		return new ReportBuilderImpl();
 	}
 }
