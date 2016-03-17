@@ -10,8 +10,6 @@ import gov.city.vehicleCounter.data.CarItem;
 public class AnalyzerImpl implements Analyzer {
 	private List<AxleItem> axleItems = new LinkedList<AxleItem>();
 	private List<CarItem> carItems = new LinkedList<CarItem>();
-	private List<List<CarItem>> carItemsOfDays = new ArrayList<List<CarItem>>();
-	private String[] arr = new String[5];
 
 	public void setDataReader(DataReader dReader) {
 		// TODO Auto-generated method stub
@@ -27,9 +25,6 @@ public class AnalyzerImpl implements Analyzer {
 		return this.carItems;
 	}
 
-	public List<List<CarItem>> getCarItemsOfDays() {
-		return this.carItemsOfDays;
-	}
 
 	void fromAxleItemsToCarItems() {
 		carItems.clear();
@@ -45,19 +40,13 @@ public class AnalyzerImpl implements Analyzer {
 	}
 
 	private void separateCarItemsByDay() {
-		this.carItemsOfDays.clear();
-
-		List<CarItem> curDayCarItems = null;
 		CarItem lastItem = null;
 		int day = -1;
 		for (CarItem item : this.carItems) {
 			if (item.isEarlierThan(lastItem)) {
 				day++;
-				curDayCarItems = new LinkedList<CarItem>();
-				this.carItemsOfDays.add(curDayCarItems);
 			}
 			item.setDay(day);
-			curDayCarItems.add(item);
 			lastItem = item;
 		}
 	}

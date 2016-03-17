@@ -15,6 +15,5 @@ public interface Analyzer {
 
 	List<CarItem> getCarItems();
 
-	List<List<CarItem>> getCarItemsOfDays();
 
 }

@@ -61,14 +61,10 @@ public class AnalyzerTest extends TestCase {
 	}
 
 	public void testSeparateByDays() {
-		List<List<CarItem>> carItemsOfDays = analyzer.getCarItemsOfDays();
-		assertEquals(2, carItemsOfDays.size());
+		List<CarItem> items = analyzer.getCarItems();
 
 		// test the 1st day
 		{
-			List<CarItem> items = carItemsOfDays.get(0);
-			// test size
-			assertEquals(items.size(), 3);
 			// test the 2nd car
 			CarItem item = items.get(1);
 			assertEquals(Sensor.A, item.getFrontAxleItem().getSensor());
@@ -81,11 +77,8 @@ public class AnalyzerTest extends TestCase {
 
 		// test the 2nd day
 		{
-			List<CarItem> items = carItemsOfDays.get(1);
-			// test size
-			assertEquals(items.size(), 1);
 			// test the 1st car
-			CarItem item = items.get(0);
+			CarItem item = items.get(4);
 			assertEquals(Sensor.A, item.getFrontAxleItem().getSensor());
 			assertEquals(582668, item.getFrontAxleItem().getMillSeconds());
 			assertEquals(Sensor.A, item.getRearAxleItem().getSensor());

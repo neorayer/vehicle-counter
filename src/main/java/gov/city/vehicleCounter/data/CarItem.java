@@ -82,14 +82,14 @@ public class CarItem {
 		return day < 0 || this.day == day;
 	}
 
-	public boolean isInPeriod(long beginTime, long timeLong) {
+	public boolean isInPeriod(long beginTime, long timeSpan) {
 		long t = this.getRearAxleItem().getMillSeconds();
 
 		if (beginTime < 0)
 			return true;
-		if (timeLong < 0)
+		if (timeSpan < 0)
 			return t >= beginTime;
-		return t >= beginTime && t < beginTime + timeLong;
+		return t >= beginTime && t < beginTime + timeSpan;
 	}
 
 }

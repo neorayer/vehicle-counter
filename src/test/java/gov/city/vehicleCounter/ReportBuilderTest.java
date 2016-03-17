@@ -5,6 +5,9 @@ import java.util.List;
 import gov.city.vehicleCounter.data.AxleItem;
 import gov.city.vehicleCounter.data.CarItem;
 import gov.city.vehicleCounter.data.CarItem.Direction;
+import gov.city.vehicleCounter.report.DailyReport;
+import gov.city.vehicleCounter.report.Report;
+import gov.city.vehicleCounter.report.ReportItem;
 import junit.framework.TestCase;
 
 public class ReportBuilderTest extends TestCase {
@@ -25,7 +28,7 @@ public class ReportBuilderTest extends TestCase {
 		analyzer.analyze();
 
 		reportBuilder = factory.getReportBuilder();
-		reportBuilder.build(analyzer.getCarItems(), analyzer.getCarItemsOfDays());
+		reportBuilder.init(analyzer.getCarItems());
 	}
 
 	protected void tearDown() throws Exception {
@@ -48,8 +51,8 @@ public class ReportBuilderTest extends TestCase {
 
 	public void testCountByDay() {
 		// total of day
-		assertEquals(4, reportBuilder.countByDay(0));
-		assertEquals(1, reportBuilder.countByDay(1));
+		assertEquals(4, reportBuilder.count(0));
+		assertEquals(1, reportBuilder.count(1));
 
 		// direction of 1st day
 		assertEquals(1, reportBuilder.count(Direction.N, 0, -1, -1));
@@ -71,6 +74,16 @@ public class ReportBuilderTest extends TestCase {
 		assertEquals(0, reportBuilder.count(Direction.N, 1, 0, oneHourMilliSeconds));
 		assertEquals(1, reportBuilder.count(Direction.S, 1, 0, oneHourMilliSeconds));
 
+	}
+	
+	public void testReport() {
+		Report report = reportBuilder.buildReport(Report.MS_HOUR);
+		List<DailyReport> dailyReports = report.getDailyReports();
+		
+		// it should get 2 days daily reports
+		assertEquals(2, dailyReports.size());
+		
+		
 	}
 
 }
