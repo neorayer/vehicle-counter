@@ -52,6 +52,10 @@ public class CarItem {
 		return isIntegrated;
 	}
 
+	/**
+	 * put a axleItem into carItem
+	 * @param axleItem
+	 */
 	public void addAxleItem(AxleItem axleItem) {
 		axleItemCount++;
 		String state = axleItem.getSensor() + "-" + axleItemCount;
@@ -78,18 +82,41 @@ public class CarItem {
 		}
 	}
 
+	/**
+	 * compare if the time is early than items time
+	 * @param item
+	 * @return
+	 */
 	public boolean isEarlierThan(CarItem item) {
 		return item == null || this.rearAxleItem.getMillSeconds() < item.getRearAxleItem().getMillSeconds();
 	}
 
+	/**
+	 * if the direction is same or belong to dir
+	 * @param dir
+	 * @return
+	 */
 	public boolean isBelongTo(Direction dir) {
 		return dir.equals(Direction.ALL) || this.direction.equals(dir);
 	}
 
+	/**
+	 * if in the same day or no special day requirement.
+	 * 
+	 * @param day
+	 * @return
+	 */
 	public boolean isInDay(int day) {
 		return day < 0 || this.day == day;
 	}
 
+	/**
+	 * if it is in a special timespan
+	 * 
+	 * @param beginTime
+	 * @param timeSpan
+	 * @return
+	 */
 	public boolean isInPeriod(long beginTime, long timeSpan) {
 		long t = this.getRearAxleItem().getMillSeconds();
 

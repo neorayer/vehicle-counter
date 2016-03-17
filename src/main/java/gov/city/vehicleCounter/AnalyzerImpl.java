@@ -30,6 +30,10 @@ public class AnalyzerImpl implements Analyzer {
 		return this.carItems;
 	}
 
+	/**
+	 * analyze the axle data into car data.
+	 * Some car data need 2 axle items and others need 4.
+	 */
 	void fromAxleItemsToCarItems() {
 		carItems.clear();
 
@@ -43,6 +47,10 @@ public class AnalyzerImpl implements Analyzer {
 		}
 	}
 
+
+	/**
+	 * Sepreate the car data day by day.
+	 */
 	private void separateCarItemsByDay() {
 		CarItem lastItem = null;
 		int day = -1;

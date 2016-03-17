@@ -31,6 +31,11 @@ public class DataReader {
 		this.logger = logger;
 	}
 
+	/**
+	 * line by line , read all the data item into a string list.
+	 * @param in
+	 * @return
+	 */
 	List<String> read(InputStream in) {
 		List<String> lines = new LinkedList<String>();
 		try (Scanner scanner = new Scanner(in)) {
@@ -44,6 +49,13 @@ public class DataReader {
 		return lines;
 	}
 
+	/** 
+	 * read data lines from a class path resource.
+	 * 
+	 * @param name
+	 * @return
+	 * @throws IOException
+	 */
 	List<String> readLinesFromResource(String name) throws IOException {
 		try (InputStream in = ClassLoader.getSystemResourceAsStream(name)) {
 			if (in == null)
@@ -52,6 +64,13 @@ public class DataReader {
 		}
 	}
 	
+	/**
+	 * read data lines from a file.
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	List<String> readLinesFromFile(String fileName) throws IOException {
 		try (InputStream in = new FileInputStream(fileName)) {
 			return read(in);

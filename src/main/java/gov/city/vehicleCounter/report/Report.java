@@ -45,6 +45,10 @@ public class Report {
 		dailyReports.add(dReport);
 	}
 
+	/**
+	 * Build a average report for all the days and return it back.
+	 * @return
+	 */
 	public DailyReport getAverageReport() {
 		DailyReport avgReport = new DailyReport(-1, timeSpan);
 
@@ -71,6 +75,11 @@ public class Report {
 		return avgReport;
 	}
 
+	/**
+	 * output a special daily report to a printStream
+	 * @param out
+	 * @param dp
+	 */
 	public void output(PrintStream out, DailyReport dp) {
 		out.println(dp.getTitle());
 		out.println("=================");
@@ -84,6 +93,10 @@ public class Report {
 		out.println();
 	}
 
+	/**
+	 * output all the reports to a printstream.
+	 * @param out
+	 */
 	public void output(PrintStream out) {
 		// output dailyReports
 		for (DailyReport dp : dailyReports) {

@@ -49,6 +49,10 @@ public class DailyReport {
 
 	}
 
+	/**
+	 * Get the north bound peak time data item
+	 * @return
+	 */
 	public ReportItem getNorthPeak() {
 		ReportItem peak = items.get(0);
 		for (ReportItem item : items) {
@@ -59,6 +63,11 @@ public class DailyReport {
 		}
 		return peak;
 	}
+
+	/**
+	 * Get the south bound peak time data item
+	 * @return
+	 */
 
 	public ReportItem getSouthPeak() {
 		ReportItem peak = items.get(0);
