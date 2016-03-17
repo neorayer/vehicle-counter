@@ -1,5 +1,14 @@
 package gov.city.vehicleCounter.data;
 
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
+
+/**
+ * The Data item class to save axle data
+ */
 public class AxleItem {
 
 	public enum Sensor {

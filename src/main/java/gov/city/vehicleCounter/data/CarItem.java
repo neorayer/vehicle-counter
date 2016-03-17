@@ -1,7 +1,15 @@
 package gov.city.vehicleCounter.data;
 
-import gov.city.vehicleCounter.data.CarItem.Direction;
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
 
+/**
+ * The Data item class to save car data, 
+ * remember a can has TWO axles
+ */
 public class CarItem {
 	public enum Direction {
 		ALL, N, S

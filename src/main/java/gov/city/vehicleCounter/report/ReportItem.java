@@ -1,5 +1,14 @@
 package gov.city.vehicleCounter.report;
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
+import java.time.LocalTime;
 
+/**
+ * ReportItem is one item of a report
+ */
 public class ReportItem {
 	private int id;
 
@@ -10,14 +19,6 @@ public class ReportItem {
 	private long valueN = 0;
 
 	private long valueS = 0;
-
-	// public ReportItem(int id, long beginTime, long timeSpan, long value) {
-	// super();
-	// this.id = id;
-	// this.beginTime = beginTime;
-	// this.timeSpan = timeSpan;
-	// this.value = value;
-	// }
 
 	public int getId() {
 		return id;
@@ -35,20 +36,34 @@ public class ReportItem {
 		this.beginTime = beginTime;
 	}
 
-	public void setTimeSpan(long timeSpan) {
-		this.timeSpan = timeSpan;
-	}
-
 	public long getTimeSpan() {
 		return timeSpan;
+	}
+
+	public void setTimeSpan(long timeSpan) {
+		this.timeSpan = timeSpan;
 	}
 
 	public long getValueN() {
 		return valueN;
 	}
 
+	public void setValueN(long valueN) {
+		this.valueN = valueN;
+	}
+
 	public long getValueS() {
 		return valueS;
+	}
+
+	public void setValueS(long valueS) {
+		this.valueS = valueS;
+	}
+
+	@Override
+	public String toString() {
+		LocalTime time = LocalTime.ofSecondOfDay(beginTime / 1000);
+		return String.format("%d:%d\t%d\t%d", time.getHour(), time.getMinute(), valueN, valueS);
 	}
 
 }

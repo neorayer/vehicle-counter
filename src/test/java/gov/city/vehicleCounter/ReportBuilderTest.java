@@ -1,14 +1,21 @@
 package gov.city.vehicleCounter;
 
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
 import java.util.List;
 
 import gov.city.vehicleCounter.data.AxleItem;
-import gov.city.vehicleCounter.data.CarItem;
 import gov.city.vehicleCounter.data.CarItem.Direction;
 import gov.city.vehicleCounter.report.DailyReport;
 import gov.city.vehicleCounter.report.Report;
-import gov.city.vehicleCounter.report.ReportItem;
 import junit.framework.TestCase;
+
+/**
+ * To test ReportBuilder class
+ */
 
 public class ReportBuilderTest extends TestCase {
 	final private String sampleName = "gov/city/vehicleCounter/sample-data.txt";
@@ -19,6 +26,7 @@ public class ReportBuilderTest extends TestCase {
 	private Analyzer analyzer;
 	private ReportBuilder reportBuilder;
 
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 		dataReader = factory.getDataReader();
@@ -31,6 +39,7 @@ public class ReportBuilderTest extends TestCase {
 		reportBuilder.init(analyzer.getCarItems());
 	}
 
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
@@ -75,15 +84,14 @@ public class ReportBuilderTest extends TestCase {
 		assertEquals(1, reportBuilder.count(Direction.S, 1, 0, oneHourMilliSeconds));
 
 	}
-	
+
 	public void testReport() {
 		Report report = reportBuilder.buildReport(Report.MS_HOUR);
 		List<DailyReport> dailyReports = report.getDailyReports();
-		
-		// it should get 2 days daily reports
-		assertEquals(2, dailyReports.size());
-		
-		
+
+		// it should get 5 days daily reports
+		assertEquals(5, dailyReports.size());
+
 	}
 
 }

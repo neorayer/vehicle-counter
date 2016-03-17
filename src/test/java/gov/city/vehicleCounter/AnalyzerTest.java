@@ -1,5 +1,9 @@
 package gov.city.vehicleCounter;
-
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,11 +12,15 @@ import gov.city.vehicleCounter.data.CarItem;
 import gov.city.vehicleCounter.data.AxleItem.Sensor;
 import junit.framework.TestCase;
 
+/**
+ * To test Analyzer logic
+ */
 public class AnalyzerTest extends TestCase {
 	private List<AxleItem> axleItems = new LinkedList<AxleItem>();
 	private BeanFactory factory = new SimpleBeanFactory();
 	private Analyzer analyzer;
 
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 		axleItems.add(new AxleItem(Sensor.A, 268981));

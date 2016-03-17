@@ -1,30 +1,34 @@
 package gov.city.vehicleCounter;
 
-import java.util.ArrayList;
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
 import java.util.LinkedList;
 import java.util.List;
 
 import gov.city.vehicleCounter.data.AxleItem;
 import gov.city.vehicleCounter.data.CarItem;
 
+/**
+ * AnalyzerImpl class is the implementation of interface Analyzer.
+ *
+ */
 public class AnalyzerImpl implements Analyzer {
 	private List<AxleItem> axleItems = new LinkedList<AxleItem>();
 	private List<CarItem> carItems = new LinkedList<CarItem>();
 
-	public void setDataReader(DataReader dReader) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException();
-	}
-
+	@Override
 	public void setAxleItems(List<AxleItem> items) {
 		this.axleItems.clear();
 		this.axleItems.addAll(items);
 	}
 
+	@Override
 	public List<CarItem> getCarItems() {
 		return this.carItems;
 	}
-
 
 	void fromAxleItemsToCarItems() {
 		carItems.clear();
@@ -51,6 +55,7 @@ public class AnalyzerImpl implements Analyzer {
 		}
 	}
 
+	@Override
 	public void analyze() {
 		fromAxleItemsToCarItems();
 		separateCarItemsByDay();

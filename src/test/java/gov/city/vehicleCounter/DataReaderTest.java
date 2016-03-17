@@ -1,5 +1,9 @@
 package gov.city.vehicleCounter;
-
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
 import java.io.IOException;
 import java.util.List;
 
@@ -7,16 +11,21 @@ import gov.city.vehicleCounter.data.AxleItem;
 import gov.city.vehicleCounter.data.AxleItem.Sensor;
 import junit.framework.TestCase;
 
+/**
+ * To test DataReader class
+ */
 public class DataReaderTest extends TestCase {
 	private BeanFactory factory = new SimpleBeanFactory();
 	private DataReader dataReader;
 	final private String sampleName = "gov/city/vehicleCounter/sample-data.txt";
 
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 		dataReader = factory.getDataReader();
 	}
 
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}

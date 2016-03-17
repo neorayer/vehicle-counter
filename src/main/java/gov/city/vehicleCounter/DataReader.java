@@ -1,5 +1,10 @@
 package gov.city.vehicleCounter;
-
+/**
+ * 
+ * @author Rui Zhou
+ * @create 17/3/2016
+ */
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -11,6 +16,9 @@ import java.util.stream.Collectors;
 import gov.city.vehicleCounter.data.AxleItem;
 import gov.city.vehicleCounter.data.AxleItem.Sensor;
 
+/**
+ * DataReader is used to read data from a java resource or file.
+ */
 public class DataReader {
 
 	private Logger logger;
@@ -43,6 +51,12 @@ public class DataReader {
 			return read(in);
 		}
 	}
+	
+	List<String> readLinesFromFile(String fileName) throws IOException {
+		try (InputStream in = new FileInputStream(fileName)) {
+			return read(in);
+		}
+	}
 
 	AxleItem parseLine(String line) {
 		line = line.trim();
@@ -61,5 +75,14 @@ public class DataReader {
 				.collect(Collectors.toList());
 		// @formatter:on
 	}
+
+	public List<AxleItem> readDataFromFile(String filePath) throws IOException {
+		// @formatter:off
+		return  readLinesFromFile(filePath)
+				.stream()
+				.map((line) -> this.parseLine(line))
+				.collect(Collectors.toList());
+		// @formatter:on
+		}
 
 }
