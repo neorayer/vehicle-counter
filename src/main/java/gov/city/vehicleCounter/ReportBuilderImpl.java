@@ -26,6 +26,9 @@ public class ReportBuilderImpl implements ReportBuilder {
 		this.carItems = carItems;
 	}
 
+	/**
+	 * Count by complex contitions
+	 */
 	@Override
 	public long count(Direction dir, int day, long beginTime, long timeSpan) {
 		// @formatter:off
@@ -37,21 +40,33 @@ public class ReportBuilderImpl implements ReportBuilder {
 		// @formatter:on
 	}
 
+	/**
+	 * count total
+	 */
 	@Override
 	public long count() {
 		return carItems.size();
 	}
 
+	/**
+	 * count by direction
+	 */
 	@Override
 	public long count(Direction dir) {
 		return count(dir, -1, -1, -1);
 	}
 
+	/**
+	 * count by s special day
+	 */
 	@Override
 	public long count(int day) {
 		return count(Direction.ALL, day, -1, -1);
 	}
 
+	/**
+	 * count by a special time span
+	 */
 	@Override
 	public long count(long timeBegin, long timeSpan) {
 		return count(Direction.ALL, -1, timeBegin, timeSpan);
