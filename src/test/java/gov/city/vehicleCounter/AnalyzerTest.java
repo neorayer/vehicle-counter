@@ -86,7 +86,7 @@ public class AnalyzerTest extends TestCase {
 		// test the 2nd day
 		{
 			// test the 1st car
-			CarItem item = items.get(4);
+			CarItem item = items.get(3);
 			assertEquals(Sensor.A, item.getFrontAxleItem().getSensor());
 			assertEquals(582668, item.getFrontAxleItem().getMillSeconds());
 			assertEquals(Sensor.A, item.getRearAxleItem().getSensor());
