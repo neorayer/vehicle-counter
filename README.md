@@ -12,8 +12,8 @@ ENV Requirement
 Build
 -----
 type:
-   
-   mvn build
+
+    mvn build
    
 Unit Test
 ---------
