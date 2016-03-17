@@ -25,8 +25,8 @@ public interface ReportBuilder {
 	long count(int day);
 
 	long count(long timeBegin, long timeSpan);
-
-	public long count(Direction dir, int day, long beginTime, long timeSpan);
+	
+	long count(Direction dir, int day, long beginTime, long timeSpan);
 
 	Report buildReport(long timeSpan);
 }

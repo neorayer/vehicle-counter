@@ -77,6 +77,12 @@ public class DataReader {
 		}
 	}
 
+	/** 
+	 * parse a line into an AxleItem object
+	 * 
+	 * @param line
+	 * @return
+	 */
 	AxleItem parseLine(String line) {
 		line = line.trim();
 		String head = line.substring(0, 1);
@@ -86,6 +92,13 @@ public class DataReader {
 		return new AxleItem(sensor, millSeconds);
 	}
 
+	/**
+	 * Read AxleImte list from a resource
+	 * 
+	 * @param name
+	 * @return
+	 * @throws IOException
+	 */
 	public List<AxleItem> readDataFromResource(String name) throws IOException {
 		// @formatter:off
 		return  readLinesFromResource(name)
@@ -95,6 +108,13 @@ public class DataReader {
 		// @formatter:on
 	}
 
+	/**
+	 * Read AxleItem from a file
+	 * 
+	 * @param filePath
+	 * @return
+	 * @throws IOException
+	 */
 	public List<AxleItem> readDataFromFile(String filePath) throws IOException {
 		// @formatter:off
 		return  readLinesFromFile(filePath)
