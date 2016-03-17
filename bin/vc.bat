@@ -1,0 +1,1 @@
+java -cp  %~dp0\vehicle-counter.jar gov.city.vehicleCounter.App %1 %2 %3
