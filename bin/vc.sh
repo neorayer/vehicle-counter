@@ -19,3 +19,5 @@ PRG="$0"
 PRGDIR=`dirname "$PRG"`
 CLASSPATH=$PRGDIR/vehicle-counter.jar
 java -cp $CLASSPATH gov.city.vehicleCounter.App $1 $2
+
+
