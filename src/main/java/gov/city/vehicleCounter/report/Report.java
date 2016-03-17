@@ -82,14 +82,16 @@ public class Report {
 	 */
 	public void output(PrintStream out, DailyReport dp) {
 		out.println(dp.getTitle());
-		out.println("=================");
-		out.println("Time\tNorthbound\tSouthbound");
+		out.println("==============================");
+		out.println("Time\tNorth\tSouth");
 		for (ReportItem item : dp.getItems()) {
 			out.println(item);
 		}
-		out.println("-----------------");
-		out.println("North Peak time: " + dp.getNorthPeak().toString());
-		out.println("Sorth Peak time: " + dp.getSouthPeak().toString());
+		out.println("------------------------------");
+		out.println("North Peak:");
+		out.println(dp.getNorthPeak());
+		out.println("South Peak:");
+		out.println(dp.getSouthPeak());
 		out.println();
 		out.println();
 	}

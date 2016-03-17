@@ -9,11 +9,11 @@ ENV Requirement
 * JSDK(> 1.8.0)
 * JUnit
 
-Build
+Compile
 -----
 type:
 
-    mvn build
+    mvn compile
    
 Unit Test
 ---------
