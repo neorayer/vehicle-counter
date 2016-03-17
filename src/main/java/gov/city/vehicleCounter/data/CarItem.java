@@ -54,6 +54,26 @@ public class CarItem {
 
 	/**
 	 * put a axleItem into carItem
+	 * 
+	 * add the axle data items into car data.
+	 * Some car data need 2 axle items and others need 4.
+	 * the direction is judged by the sequence of the sensors:
+	 * 
+	 * Direction:
+	 *  1. the 1st axle item of a car must start from A.
+	 *  2. the direction will be N if the 2nd is A too, and
+	 *  3. the direction will be S if the 2nd is B.
+	 *  
+	 * Axle items count:
+	 *  the count of axle items of one car is:
+	 *  2 - if the direction is N
+	 *  4 - if the direction is S.
+	 * 
+	 * IsIntegrated:
+	 *  So when carItem get the axleItem count equals as above number,
+	 *  field isIntegrated will be true, and shouldn't received more axle 
+	 *  item again.
+	 * 
 	 * @param axleItem
 	 */
 	public void addAxleItem(AxleItem axleItem) {

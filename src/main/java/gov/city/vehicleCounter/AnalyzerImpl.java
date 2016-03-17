@@ -39,6 +39,10 @@ public class AnalyzerImpl implements Analyzer {
 
 		CarItem carItem = new CarItem();
 		for (AxleItem axleItem : this.axleItems) {
+			// Add the axleItem into a carItem object one by one,
+			// then use carItem.isIntergrated() to judge 
+			// if a carImem has got the complete axle data items.
+			// @see CarItem.addAxleItem()
 			carItem.addAxleItem(axleItem);
 			if (carItem.isIntegrated()) {
 				this.carItems.add(carItem);
