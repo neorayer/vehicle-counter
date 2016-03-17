@@ -23,15 +23,17 @@ public class App {
 	private ReportBuilder reportBuilder;
 
 	public void exec(String filePath) throws IOException {
-
+		// build the beans
 		dataReader = factory.getDataReader();
-		// List<AxleItem> items = dataReader.readDataFromResource(filePath);
-		List<AxleItem> items = dataReader.readDataFromFile(filePath);
+		reportBuilder = factory.getReportBuilder();
 		analyzer = factory.getAnalyzer();
+
+		// do analyze
+		List<AxleItem> items = dataReader.readDataFromFile(filePath);
 		analyzer.setAxleItems(items);
 		analyzer.analyze();
 
-		reportBuilder = factory.getReportBuilder();
+		// get report!
 		reportBuilder.init(analyzer.getCarItems());
 
 		{
