@@ -83,6 +83,7 @@ public class Report {
 	public void output(PrintStream out, DailyReport dp) {
 		out.println(dp.getTitle());
 		out.println("=================");
+		out.println("Time\tNorthbound\tSouthbound");
 		for (ReportItem item : dp.getItems()) {
 			out.println(item);
 		}

@@ -61,10 +61,19 @@ public class App {
 			report.output(System.out);
 		}
 	}
+	
+	private static void outputUsage() {
+		System.out.println("Usage: java -cp CLASSPATH gov.city.vehicleCounter.App dataFilePath [timespan]");
+		System.out.println("");
+		System.out.println("This is a simple command line tools to analyze the data file of 'vehicle counter' sensors");
+		System.out.println("");
+//		System.out.println("Timespan:");
+//		System.out.println("\tday - Timespan is 24 hours, you can get day");
+	}
 
 	public static void main(String[] args) throws IOException {
 		if (args.length < 1) {
-			System.out.println("Usage: java -cp CLASSPATH gov.city.vehicleCounter.App filePath");
+			outputUsage();
 			return;
 		}
 		
