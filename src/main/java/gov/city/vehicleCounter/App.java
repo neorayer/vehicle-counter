@@ -62,7 +62,7 @@ public class App {
 
 	public static void main(String[] args) throws IOException {
 		if (args.length < 1) {
-			System.out.println("Usage: java gov.city.vehicleCounter.App filePath");
+			System.out.println("Usage: java -cp CLASSPATH gov.city.vehicleCounter.App filePath");
 			return;
 		}
 		

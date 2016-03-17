@@ -23,7 +23,7 @@ Just type:
     
 Usage
 -----
-java -cp gov.city.vehicleCounter.App DATA_filePath
+java -cp  CLASSPATH gov.city.vehicleCounter.App DATA_filePath
 
 
 
